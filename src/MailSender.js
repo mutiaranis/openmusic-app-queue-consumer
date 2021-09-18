@@ -13,7 +13,7 @@ class MailSender {
     });
   }
 
-  sendEmail(targetEmail, content) {
+  async sendEmail(targetEmail, content) {
     const message = {
       from: 'OpenMusic Apps',
       to: targetEmail,
