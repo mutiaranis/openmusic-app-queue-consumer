@@ -7,8 +7,7 @@ class PlaylistsService {
 
   async getPlaylists(playlistId) {
     const query = {
-      text: `SELECT playlists.* FROM playlists
-      LEFT JOIN collaborations ON collaborations.playlist_id = playlists.id
+      text: `SELECT playlists.id, playlists.name, users.username FROM playlists
       LEFT JOIN users ON users.id = playlists.owner
       WHERE playlists.owner = $1 OR collaborations.user_id = $1
       GROUP BY playlists.id, users.username`,
